@@ -21,6 +21,12 @@ app.use("/", urlRoutes);
 // Routes
 app.use("/api/v1/admin", adminAuthRoutes);
 
+//cors 
+const corsOptions = {
+  origin: process.env.FRONTEND_BASE_URL,
+  optionsSuccessStatus: 200,
+};
+
 
 // DB Connection
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
