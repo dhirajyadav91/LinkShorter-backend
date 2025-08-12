@@ -6,6 +6,7 @@ const cors = require("cors");
 const urlRoutes = require("./routes/urlRoute");
 const adminRoutes = require("./routes/adminRoute");
 const adminAuthRoutes = require("./routes/adminAuthUrl");
+const { redirectShortUrl } = require("./controllers/allUrlcontroller");
 
 const app = express();
 
@@ -22,6 +23,11 @@ app.use(express.json());
 app.get('/', (req, res) => {
   res.send('Backend is running');
 });
+
+
+// Redirect route for short URLs
+app.get("/:shortcode", redirectShortUrl);
+
 
 // Routes
 app.use("/api/v1/url", urlRoutes);
