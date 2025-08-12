@@ -14,6 +14,13 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+
+//server running
+app.get('/', (req, res) => {
+  res.send('Backend is running');
+});
+
+
 // Routes
 app.use("/api/v1/url", urlRoutes);
 app.use("/api/v1/admin", adminRoutes);
